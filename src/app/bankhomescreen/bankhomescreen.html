@@ -1,0 +1,114 @@
+<div class="main-page-wrapper">
+  <header class="top-bar">
+    <div class="welcome-section">
+      <h2 class="page-title">Dashboard</h2>
+      <span class="welcome-text">Welcome back, Alexander</span>
+    </div>
+
+    <div class="header-actions">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search transactions...">
+      </div>
+      <button class="icon-btn"><i class="far fa-bell"></i></button>
+      <button class="icon-btn"><i class="far fa-question-circle"></i></button>
+      <div class="profile-thumb">
+        <img src="/image/profile.jpg" alt="Profile">
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-grid">
+    <!-- Blue Banner -->
+    <section class="banner-card">
+      <div class="banner-content">
+        <h2 class="banner-title">Build your financial future.</h2>
+        <p class="banner-subtitle">Manage your premium credit facilities with the precision of an artisan. Your current rating is excellent.</p>
+        <div class="banner-actions">
+          <button class="btn-primary-alt"><i class="fas fa-rocket me-2"></i> Increase Limit</button>
+          <button class="btn-outline-light">View Statements</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary Cards -->
+    <div class="summary-row">
+      <div *ngFor="let card of summaryCards" class="summary-card">
+        <div class="card-header">
+          <div class="card-icon-box"><i [class]="card.icon"></i></div>
+          <span class="card-badge" *ngIf="card.badge">{{card.badge}}</span>
+        </div>
+        <div class="card-body-content">
+          <span class="card-label">{{card.title}}</span>
+          <h3 class="card-value">{{card.value}}</h3>
+        </div>
+        <div class="card-footer" *ngIf="card.footer">
+          <i [class]="card.footerIcon" *ngIf="card.footerIcon" class="me-1"></i>
+          {{card.footer}}
+        </div>
+        <div class="progress-indicator" *ngIf="card.title === 'Active Loans'">
+          <div class="progress-segments">
+            <span class="segment active"></span>
+            <span class="segment active"></span>
+            <span class="segment"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Layout -->
+    <div class="bottom-grid">
+      <div class="chart-section">
+        <div class="section-header">
+          <div>
+            <h3 class="section-title">Repayment Analytics</h3>
+            <p class="section-subtitle">Historical performance over 6 months</p>
+          </div>
+          <div class="chart-legend">
+            <span class="legend-item"><span class="dot principal"></span> PRINCIPAL</span>
+            <span class="legend-item"><span class="dot interest"></span> INTEREST</span>
+          </div>
+        </div>
+        
+        <div class="chart-container">
+          <div *ngFor="let data of chartData" class="chart-column">
+            <div class="bar-stack">
+              <div class="bar interest" [style.height.%]="data.interest"></div>
+              <div class="bar principal" [style.height.%]="data.principal"></div>
+            </div>
+            <span class="month-label" [class.active]="data.month === 'OCT'">{{data.month}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="credit-card">
+          <div class="card-top">
+            <i class="fas fa-rss fs-4"></i>
+            <span class="platinum">PLATINUM ACCESS</span>
+          </div>
+          <div class="card-number">**** **** **** 8824</div>
+          <div class="card-bottom">
+            <span class="card-holder">ALEXANDER R.</span>
+            <div class="mastercard-logo">
+              <span class="circle red"></span>
+              <span class="circle orange"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions-card">
+          <h4 class="card-sublabel">REQUIRED ACTIONS</h4>
+          <div *ngFor="let action of requiredActions" class="action-item">
+            <div class="action-icon"><i [class]="action.icon"></i></div>
+            <div class="action-details">
+              <span class="action-title">{{action.title}}</span>
+              <span class="action-deadline">Required by {{action.deadline}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

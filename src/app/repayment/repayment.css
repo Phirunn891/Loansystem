@@ -1,0 +1,295 @@
+:host {
+  font-family: 'Inter', sans-serif;
+  display: block;
+}
+
+.main-page-wrapper {
+  padding: 2.5rem 3rem;
+  background: transparent;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0;
+  color: #1e293b;
+}
+
+.welcome-text {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.search-box {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  padding: 0.6rem 1rem 0.6rem 2.8rem;
+  width: 320px;
+  border: 1px solid #e2e8f0;
+}
+
+.search-box i {
+  position: absolute;
+  left: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.profile-thumb img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Summary Cards */
+.summary-cards-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.balance-card {
+  background: white;
+  border-radius: 24px;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f5f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 0.8rem;
+}
+
+.balance-value {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #0066cc;
+  margin-bottom: 2rem;
+}
+
+.balance-details {
+  display: flex;
+}
+
+.detail-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #94a3b8;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.05em;
+}
+
+.detail-value {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.detail-value.active {
+  color: #0066cc;
+}
+
+.card-visual {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  opacity: 0.05;
+}
+
+.decorative-icon {
+  font-size: 8rem;
+  color: #0066cc;
+  transform: rotate(-15deg);
+}
+
+.action-blue-card {
+  background: linear-gradient(135deg, #0052cc 0%, #0076f5 100%);
+  border-radius: 24px;
+  padding: 2.5rem;
+  color: white;
+}
+
+.action-info h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.action-info p {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.early-pay-btn {
+  background: white;
+  color: #0066cc;
+  border: none;
+  padding: 0.9rem 1.8rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+/* History Section */
+.history-section {
+  background: white;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f5f9;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.header-text h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.header-text p {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.filter-btn {
+  background: white;
+  border: 1px solid #e2e8f0;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #1e293b;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-table th {
+  text-align: left;
+  padding: 1rem 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.history-table td {
+  padding: 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.id-col {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.main-date {
+  font-weight: 700;
+  color: #1e293b;
+  display: block;
+}
+
+.sub-date {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.method-label {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.method-icon {
+  color: #64748b;
+  margin-right: 0.8rem;
+}
+
+.amount-col {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #1e293b;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.status-badge.paid { background: #f0fdf4; color: #16a34a; }
+.status-badge.pending { background: #eff6ff; color: #2563eb; }
+.status-badge.overdue { background: #fef2f2; color: #dc2626; }
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}

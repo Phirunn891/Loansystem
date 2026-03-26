@@ -1,0 +1,55 @@
+<div class="container">
+   <div class="card">
+    <div class="card-body">
+        <div class="row">
+            <i class="fa-solid fa-chevron-left text-white"></i>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="profile">
+                    <img src="/image/profile.jpg" alt="">
+                </div>
+            </div>  
+        </div>
+        <div class="row">
+            <div class="col user">
+                <h4 class="name-user">VAT PHIRUN</h4>
+                <p class="text-white">060 965 895</p>
+                <p class="text-white dangrek-regular">សូមបញ្ជូលលេខសម្ងាត់</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col detect">
+                @for (item of code; track $index) {
+                    <div class="circle" [class.circle-filled]="item !== '' "></div>
+                }
+            </div>
+        </div>
+        <div class="row">
+            @for (btn of pin_btn; track $index) {
+                <div class="col-4 btn-code mt-5">
+                    <button (click)="enterDigits(btn)" type="button" class="btn typing-posscode number-posscode" data-mdb-ripple-init>
+                        {{btn}}
+                    </button>
+                </div>
+            }
+        </div>
+        <div class="row mt-5 ">
+            <div class="col-3 btn-code">
+               
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 user text-start">
+                <p class="text-white dangrek-regular">ភ្លេចលេខសម្ងាត់</p>
+            </div>
+            <div class="col-6 user text-end">
+                <p class="text-white dangrek-regular">បោះបង់</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Junoir Login -->
+
+

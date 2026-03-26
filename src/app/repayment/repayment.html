@@ -1,0 +1,99 @@
+<div class="main-page-wrapper">
+  <header class="top-bar">
+    <div class="welcome-section">
+      <h2 class="page-title">Repayment Tracker</h2>
+      <span class="welcome-text">Account: <strong>{{userWorkEmail}}</strong></span>
+    </div>
+
+    <div class="header-actions">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search transactions...">
+      </div>
+      <button class="icon-btn"><i class="far fa-bell themed-bell"></i></button>
+      <button class="icon-btn"><i class="far fa-question-circle"></i></button>
+      <div class="profile-thumb">
+        <img src="/image/profile.jpg" alt="Profile">
+      </div>
+    </div>
+  </header>
+
+  <!-- Top Summary Cards -->
+  <div class="summary-cards-row">
+    <div class="balance-card">
+      <div class="balance-info">
+        <span class="label">Total Remaining Balance</span>
+        <h2 class="balance-value">{{totalBalance}}</h2>
+        
+        <div class="balance-details">
+          <div class="detail-box">
+            <span class="detail-label">NEXT PAYMENT</span>
+            <span class="detail-value active">{{nextPaymentDate}}</span>
+          </div>
+          <div class="detail-box ms-4">
+            <span class="detail-label">INSTALLMENT</span>
+            <span class="detail-value">{{installmentAmount}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-visual">
+        <i class="fas fa-wallet decorative-icon"></i>
+      </div>
+    </div>
+
+    <div class="action-blue-card">
+      <div class="action-info">
+        <h3>Reduce your debt faster</h3>
+        <p>Early payments are applied directly to your principal balance, reducing total interest over time.</p>
+        <button class="early-pay-btn"><i class="fas fa-rocket me-2"></i> Make an Early Payment</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment History Section -->
+  <div class="history-section">
+    <div class="section-header">
+      <div class="header-text">
+        <h3>Payment History</h3>
+        <p>Detailed log of all scheduled and manual repayments.</p>
+      </div>
+      <div class="header-filters">
+        <button class="filter-btn"><i class="fas fa-sliders-h me-2"></i> Filter</button>
+        <button class="filter-btn"><i class="fas fa-download me-2"></i> Statement</button>
+      </div>
+    </div>
+
+    <div class="table-container shadow-sm">
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>TRANSACTION ID</th>
+            <th>DATE</th>
+            <th>METHOD</th>
+            <th>AMOUNT</th>
+            <th>STATUS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let txn of paymentHistory">
+            <td class="id-col">{{txn.id}}</td>
+            <td class="date-col">
+              <span class="main-date">{{txn.date}}</span>
+              <span class="sub-date">{{txn.type}}</span>
+            </td>
+            <td class="method-col">
+              <i [class]="txn.methodIcon + ' method-icon'"></i>
+              <span class="method-label">{{txn.methodLabel}}</span>
+            </td>
+            <td class="amount-col">{{txn.amount}}</td>
+            <td class="status-col">
+              <span class="status-badge" [class]="txn.statusClass">
+                <span class="dot"></span> {{txn.status}}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

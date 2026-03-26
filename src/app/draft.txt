@@ -1,0 +1,165 @@
+<div class="container mt-5">
+   <div class="card">
+    <div class="card-body">
+        <div class="row">
+            <i class="fa-solid fa-chevron-left text-white"></i>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="profile">
+                    <img src="/image/profile.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col user">
+                <h4 class="name-user">VAT PHIRUN</h4>
+                <p class="text-white">060 965 895</p>
+                <p class="text-white dangrek-regular">សូមបញ្ជូលលេខសម្ងាត់</p>
+            </div>
+        </div>
+        <div class="row ">
+          <div class="col detect">
+            <i class="fa-regular fa-circle circle-icon"></i>
+            <i class="fa-regular fa-circle circle-icon"></i>
+            <i class="fa-regular fa-circle circle-icon"></i>
+            <i class="fa-regular fa-circle circle-icon"></i>
+            <i class="fa-regular fa-circle circle-icon"></i>
+            <i class="fa-regular fa-circle circle-icon"></i>
+          </div>
+        </div>
+        <div class="row mt-5 ">
+            <div class="col btn-code">
+                <button type="button" class="btn typing-posscode number-posscode" data-mdb-ripple-init>
+                    <p class="number-posscode">1</p>
+                </button>
+                <button type="button" class="btn typing-posscode text-center" data-mdb-ripple-init>
+                    <p class="number-posscode">2</p>
+                </button>
+                <button type="button" class="btn typing-posscode text-center" data-mdb-ripple-init>
+                    <p class="number-posscode">3</p>
+                </button>
+            </div>
+        </div>
+        <div class="row mt-5 ">
+            <div class="col btn-code">
+                <button type="button" class="btn typing-posscode text-center" data-mdb-ripple-init>
+                    <p class="number-posscode">4</p>
+                </button>
+                <button type="button" class="btn typing-posscode text-center" data-mdb-ripple-init>
+                    <p class="number-posscode">5</p>
+                </button>
+                <button type="button" class="btn typing-posscode text-center" data-mdb-ripple-init>
+                    <p class="number-posscode">6</p>
+                </button>
+            </div>
+        </div>
+        <div class="row mt-5 ">
+            <div class="col btn-code">
+                <button type="button" class="btn typing-posscode text-center" data-mdb-ripple-init>
+                    <p class="number-posscode">7</p>
+                </button>
+                <button type="button" class="btn typing-posscode text-center" data-mdb-ripple-init>
+                    <p class="number-posscode">8</p>
+                </button>
+                <button type="button" class="btn typing-posscode text-center" data-mdb-ripple-init>
+                    <p class="number-posscode">9</p>
+                </button>
+            </div>
+        </div>
+        <div class="row mt-5 ">
+            <div class="col btn-code">
+                <button type="button" class="btn typing-posscode text-center" data-mdb-ripple-init>
+                    <p class="number-posscode">0</p>
+                </button>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 user text-start">
+                <p class="text-white dangrek-regular">ភ្លេចលេខសម្ងាត់</p>
+            </div>
+            <div class="col-6 user text-end">
+                <p class="text-white dangrek-regular">បោះបង់</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+//
+.card-body{
+    background: linear-gradient(to top, rgb(0, 7, 30),rgb(4, 18, 79));
+} 
+.profile{
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid white;
+}
+.profile img{
+    width: 100%;
+}
+.user{
+    text-align: center;
+    margin-top: 0.5rem;
+}
+.name-user{
+    color: rgb(161, 114, 2);
+}
+.dangrek-regular {
+  font-family: "Dangrek", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.detect{
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.btn-code{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.typing-posscode{
+    display: flex;
+    margin: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid white;
+}
+.circle-icon{
+    color: white;
+}
+.number-posscode{
+    color: white;
+    font-size: 1rem;
+}
+//
+Html Deva
+<div class="pin-login-container">
+  <div class="profile">
+    <div class="circle">RR</div>
+    <h2>Run Ratha</h2>
+    <p>017 763 678</p>
+    <p>សូមបញ្ចូលលេខសម្ងាត់</p>
+  </div>
+
+  <div class="pin-circles">
+    <div *ngFor="let circle of pinDisplay" class="pin-dot" [class.filled]="circle"></div>
+  </div>
+
+  <div class="keypad">
+    <button *ngFor="let num of numbers" (click)="enterDigit(num)">{{ num }}</button>
+  </div>
+
+  <div class="actions">
+    <button (click)="clearPin()">សំអាតលេខសម្ងាត់</button>
+    <button (click)="submitPin()">បញ្ជូន</button>
+  </div>
+</div>

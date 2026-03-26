@@ -1,0 +1,168 @@
+<div class="main-page-wrapper">
+  <!-- Top Stepper Header -->
+  <header class="stepper-header">
+    <div class="stepper-horizontal">
+      <div class="step completed">
+        <div class="step-icon"><i class="fas fa-check"></i></div>
+        <span class="step-label">Personal</span>
+      </div>
+      <div class="step-line active"></div>
+      <div class="step completed">
+        <div class="step-icon"><i class="fas fa-check"></i></div>
+        <span class="step-label">Financial</span>
+      </div>
+      <div class="step-line" [class.active]="currentStep >= 3"></div>
+      <div class="step" [class.active]="currentStep === 3" [class.completed]="currentStep > 3">
+        <div class="step-icon">
+          <span *ngIf="currentStep <= 3">3</span>
+          <i *ngIf="currentStep > 3" class="fas fa-check"></i>
+        </div>
+        <span class="step-label">Amount</span>
+      </div>
+      <div class="step-line" [class.active]="currentStep >= 4"></div>
+      <div class="step" [class.active]="currentStep === 4">
+        <div class="step-icon">4</div>
+        <span class="step-label">Review</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="journey-main-content">
+    <header class="content-header">
+      <h1 class="page-title">
+        {{currentStep === 3 ? 'Begin Your' : 'Review Your'}} 
+        <span class="accent-text">Financial Journey</span>
+      </h1>
+      <p class="welcome-text">
+        {{currentStep === 3 
+          ? 'Experience a tailored approach to lending. Our application process is designed to be as fluid as the capital we provide.' 
+          : 'Please review your calculated repayment schedule (Fix Principal) below to finalize your application.'}}
+      </p>
+    </header>
+
+    <!-- STEP 3: Loan Customization -->
+    <div class="loan-customization-card" *ngIf="currentStep === 3">
+      <h2 class="section-title">Loan Customization (Fix Principal)</h2>
+      
+      <div class="amount-display">
+        <div class="label-row">
+          <span class="req-label">Requested Amount</span>
+          <span class="apr-badge">EST. APR: {{interest}}%</span>
+        </div>
+        <h2 class="display-value">${{principal | number}}</h2>
+        
+        <div class="slider-container">
+          <input type="range" min="1000" max="100000" step="500" [(ngModel)]="principal" (input)="calculate()" class="amount-slider">
+          <div class="slider-labels">
+            <span>$1,000</span>
+            <span>$50,000</span>
+            <span>$100,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="terms-purpose-row">
+        <div class="form-group term-choices">
+          <label class="input-label">Loan Term (Months)</label>
+          <div class="term-buttons">
+            <button *ngFor="let t of [12, 24, 36, 48]" [class.active]="duration === t" (click)="setDuration(t)">{{t}}</button>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="input-label">Loan Purpose</label>
+          <select class="styled-select" [(ngModel)]="purpose">
+            <option value="Business Expansion">Business Expansion</option>
+            <option value="Personal Loan">Personal Loan</option>
+            <option value="Real Estate">Real Estate</option>
+          </select>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Employment & Income</h3>
+      <div class="income-grid">
+        <div class="form-group">
+          <label class="input-label">CURRENT EMPLOYER</label>
+          <input type="text" placeholder="e.g. Acme Corp" class="styled-input">
+        </div>
+        <div class="form-group">
+          <label class="input-label">GROSS MONTHLY INCOME</label>
+          <div class="input-with-icon">
+            <span class="money-icon">$</span>
+            <input type="number" [(ngModel)]="monthlyIncome" class="styled-input ps-4">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="input-label">YEARS AT EMPLOYMENT</label>
+          <input type="number" placeholder="5" class="styled-input">
+        </div>
+        <div class="form-group">
+          <label class="input-label">WORK EMAIL</label>
+          <input type="email" placeholder="name@company.com" class="styled-input">
+        </div>
+      </div>
+
+      <div class="summary-box">
+        <div class="summary-item">
+          <div class="summary-icon"><i class="fas fa-money-check-alt"></i></div>
+          <div class="summary-details">
+            <span class="sum-label">Estimated Debt Value</span>
+            <h4 class="sum-value">${{totalAmount | number:'1.2-2'}}</h4>
+          </div>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-item">
+          <div class="summary-details">
+            <span class="sum-label">TOTAL INTEREST PAYABLE</span>
+            <h4 class="sum-value secondary">${{totalInterest | number:'1.2-2'}}</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-footer">
+        <a routerLink="/bankhomescreen" class="back-link"><i class="fas fa-arrow-left me-2"></i> Back to Financials</a>
+        <button class="next-btn" (click)="nextStep()">Continue to Review <i class="fas fa-arrow-right ms-2"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Review Schedule -->
+    <div class="loan-customization-card table-card" *ngIf="currentStep === 4">
+      <div class="table-header">
+        <h2 class="section-title">Repayment Schedule (Reducing Balance)</h2>
+        <div class="summary-chips">
+          <span class="chip">Total Payback: <strong>${{totalAmount | number:'1.2-2'}}</strong></span>
+        </div>
+      </div>
+      
+      <div class="table-container">
+        <table class="repayment-table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Due Date</th>
+              <th>Principal</th>
+              <th>Interest</th>
+              <th>Payment</th>
+              <th>Balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of loanTable; let i = index" [class.payment-row]="i % 2 === 0">
+              <td>{{item.no}}</td>
+              <td class="date-col">{{item.date}}</td>
+              <td>${{item.principal | number:'1.2-2'}}</td>
+              <td>${{item.interest | number:'1.2-2'}}</td>
+              <td class="pay-col">${{item.payment | number:'1.2-2'}}</td>
+              <td class="bal-col">${{item.balance | number:'1.2-2'}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="action-footer">
+        <button class="back-link-btn" (click)="prevStep()"><i class="fas fa-arrow-left me-2"></i> Edit Parameters</button>
+        <button class="next-btn confirm">Confirm & Request Loan <i class="fas fa-shield-alt ms-2"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

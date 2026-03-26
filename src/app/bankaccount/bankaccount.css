@@ -1,0 +1,43 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.aba-account{
+    background-color: rgb(255, 255, 255);
+    color: rgb(6, 5, 5);
+    border-radius: 0.5rem;
+    width: 35rem;
+    line-height: 1;
+    box-shadow: 0px 1px 10px rgb(189, 0, 88);
+}
+.aba-account p{
+    margin-top: 0;
+    margin-left: 1rem;
+    font-size: 0.8rem;
+    color: rgb(90, 89, 89);
+}
+.aba-account h5{
+    margin-left: 1rem;
+    margin-top: 0.7rem;
+}
+.aba-account > svg{
+    padding: 0rem 2rem;
+}
+.balance{
+    margin-right: 1rem;
+}
+.fa-ellipsis{
+    margin-right: 1rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+.bank-card{
+    margin-left: 1rem;
+}
+.acc{
+    color: rgb(33, 33, 33);
+}
+.usd{
+    font-size: 0.7rem;
+    color: rgb(29, 29, 29);
+}

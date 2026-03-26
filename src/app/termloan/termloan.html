@@ -1,0 +1,166 @@
+<div class="text-start back-btn" routerLink="/bankhomescreen">
+    <i class="fa-solid fa-chevron-left"></i>
+</div>
+<div class="container">
+    <div class="row mt-5">
+        <div class="card borders">
+            <div class="card-body">
+                <h1 class="text-center color-header">Term Installment Payment</h1>
+                <p class="text-center fs-5">Grouped installment is a loan repayment method where the borrower pays interest every month, but the loan principal is paid in groups for example, every 3 months or 6 months. This method helps reduce monthly payment pressure and makes it easier for borrowers to manage their finances while still keeping the loan on schedule.</p>
+            </div>
+        </div>
+    </div>
+        <div class="row mt-5">
+        <div class="col-6">
+            <h3 class="color-header">Customize Loan <span><i class="bi bi-chevron-right icon"></i></span></h3>
+        </div>
+        <div class="col-6 text-end">
+            <i class="bi bi-pencil-square icon"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+            </i>
+            <!-- Scrollable modal -->
+            <!-- Modal -->
+            <div class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                    <div class="modal-content card-color ">
+                        <div class="modal-header borders">
+                            <h1 class="modal-title fs-5 text-white text-start" id="exampleModalLabel">Loan Payment <br> Calulator</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h6 class="text-start text-white"> Loan Amount :</h6>
+                            <div class="form-outline border" data-mdb-input-init>
+                                <input type="number" [(ngModel)]="cashInput" id="typeNumber" class="form-control" />
+                                <label class="form-label text-white" for="typeNumber"></label>
+                            </div>
+                            <!-- End Loan Input -->
+                            <h6 class="text-start text-white mt-2"> Interest Rate %</h6>
+                                <div class="form-outline border" data-mdb-input-init>
+                                    <input type="number" [(ngModel)]="interestInput" id="typeNumber" class="form-control" min="1" max="10" step="0.1" />
+                                    <label class="form-label" for="typeNumber"></label>
+                                </div>
+                            <div class="range" data-mdb-range-init>
+                                <input type="range" [(ngModel)]="interestInput" class="form-range mt-2" min="1" max="10" step="0.1" id="customRange3" />
+                            </div> 
+                            <!-- End Interest Input -->
+                            <h6 class="text-start text-white"> Duration :</h6>
+                            <div class="form-outline border" data-mdb-input-init>
+                                <input type="number" [(ngModel)]="durationInput" id="typeNumber" class="form-control"/>
+                                <label class="form-label" for="typeNumber"></label>
+                            </div>
+                            <!-- End Duration -->
+                            <h6 class="text-start text-white mt-2"> Date :</h6>
+                            <div class="form-outline border" data-mdb-input-init>
+                                <input type="date" id="typeDate" class="form-control" min="10" max="36"/>
+                                <label class="form-label text-white" for="typeDate"></label>
+                            </div>
+                        </div>
+                        <div class="modal-footer borders">
+                            <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>
+                            <button (click)="customizeLoan()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Calulate Loan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-3 card-hover">
+            <div class="card card-color borders">
+                <div class="card-body text-center">
+                    <i class="card-title bi bi-cash-coin item-card"></i>
+                    <p class="card-text text-white">Principal Amount</p>
+                    <h4 class="text-white">${{cashInput}}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 card-hover">
+            <div class="card card-color borders">
+                <div class="card-body text-center">
+                    <i class="bi bi-percent item-card"></i>
+                    <p class="card-text text-white">Total Interest</p>
+                    <h4 class="text-white">{{interestInput}}%</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 card-hover">
+            <div class="card card-color borders">
+                <div class="card-body text-center ">
+                    <i class="bi bi-calendar-day-fill item-card"></i>
+                    <p class="card-text text-white">Duration</p>
+                    <h4 class="text-white">{{durationInput}} Months</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 card-hover">
+            <div class="card card-color borders">
+                <div class="card-body text-center">
+                    <i class="bi bi-database-fill-check item-card"></i>
+                    <p class="card-text text-white">Total Payment</p>
+                    <h4 class="text-white">${{totalAmount.toFixed(2)}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Content Card -->
+    <div class="row mt-5">
+        <div class="card borders ">
+            <div class="card-body">
+                    <h3 class="color-header">Payment Schedule <span><i class="bi bi-chevron-right icon"></i></span></h3>
+                    <table class="table mt-5">
+                        <tbody>
+                            <tr class="">
+                                <td class="color-header fs-2">${{principal}}</td>
+                                <td class="color-header fs-2">{{duration}} Months</td>
+                                <td class="color-header fs-2">{{interest}} %</td>
+                                <td class="color-header fs-2">{{date}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table">
+                        <thead>
+                            <tr class="card-color">
+                                <td class=" text-white fs-3 bg-table">No</td>
+                                <td class=" text-white fs-3 bg-table"> Principal</td>
+                                <td class=" text-white fs-3 bg-table">Interest</td>
+                                <td class=" text-white fs-3 bg-table">Payment</td>
+                                <td class=" text-white fs-3 bg-table">Date</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (item of loanTable; track $index) {
+                            <tr [class.color-purple]="item.month % 2 == 0">
+                                <td class="fs-5">{{item.month}}</td>
+                                <td class="fs-5">${{item.principal.toFixed(2)}}</td>
+                                <td class="fs-5">${{item.monthlyInterest}}</td>
+                                <td class="fs-5">${{item.totalpricipal.toFixed(2)}}</td>
+                                <td class="fs-5">{{item.date}}</td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-8 text-end">
+            <h4 class="card-text color-header">Total Interest</h4>
+            <h4 class="card-text color-header">Total Payment</h4>
+        </div>
+        <div class="col-4 text-end">
+            <h3 class="card-text color-header">${{totalInterest.toFixed(2)}}</h3>
+            <h3 class="card-text color-header">${{totalPrincipal.toFixed(2)}}</h3>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <p class="footer-text text-center mt-2">© 2025 Cam Loan.Business Partner, Best Choice For Deal.</p>
+    <div class="icon-container">
+            <a href="#" class="link-icon"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="link-icon"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="link-icon"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#" class="link-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="link-icon"><i class="fa-brands fa-twitter"></i></a> 
+        </div>
+</footer>
+
+

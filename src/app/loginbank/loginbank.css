@@ -1,0 +1,257 @@
+:host {
+  font-family: 'Inter', sans-serif;
+}
+
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top left, #f8faff 0%, #eef2f7 50%, #e2e8f0 100%);
+  padding: 2rem;
+}
+
+.header-section {
+  margin-bottom: 2.5rem;
+}
+
+.logo-container {
+  background: #0066cc;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+}
+
+.main-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1rem;
+}
+
+.login-card {
+  background: white;
+  width: 100%;
+  max-width: 440px;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+}
+
+.error-banner {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid #fee2e2;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.input-label {
+  font-weight: 500;
+  color: #444;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.forgot-link {
+  color: #0066cc;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  color: #999;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 1rem;
+  color: #999;
+  cursor: pointer;
+}
+
+.styled-input {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.8rem;
+  border: 1px solid #e1e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.styled-input:focus {
+  outline: none;
+  border-color: #0066cc;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.05);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.styled-checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  cursor: pointer;
+}
+
+.sign-in-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-in-btn:hover {
+  background: #0052a3;
+  transform: translateY(-1px);
+}
+
+.sign-in-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.divider {
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.divider-text {
+  padding: 0 1rem;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: white;
+  color: #1a1a1a;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.social-btn img {
+  width: 20px;
+}
+
+.social-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.footer-links {
+  margin-top: 2.5rem;
+}
+
+.signup-text {
+  color: #444;
+  margin-bottom: 3rem;
+}
+
+.begin-link {
+  color: #0066cc;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.bottom-legal {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+}
+
+.dot {
+  color: #cbd5e1;
+}

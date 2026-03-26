@@ -1,0 +1,72 @@
+<div class="login-wrapper">
+  <div class="header-section text-center">
+    <div class="logo-container">
+      <i class="fas fa-university"></i>
+    </div>
+    <h1 class="main-title">Financial Atelier</h1>
+    <p class="subtitle">Bespoke lending for modern ambitions</p>
+  </div>
+
+  <div class="login-card">
+    <div class="error-banner" *ngIf="errorMessage">
+      <i class="fas fa-exclamation-circle me-3"></i>
+      <span>{{errorMessage}}</span>
+    </div>
+    <div class="form-group">
+      <label class="input-label">Email Address</label>
+      <div class="input-container">
+        <i class="far fa-envelope input-icon"></i>
+        <input type="email" [(ngModel)]="email" name="email" placeholder="name@company.com" class="styled-input">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="label-row">
+        <label class="input-label">Password</label>
+        <a href="#" class="forgot-link">Forgot password?</a>
+      </div>
+      <div class="input-container">
+        <i class="fas fa-lock input-icon"></i>
+        <input [type]="passwordVisible ? 'text' : 'password'" [(ngModel)]="password" name="password" placeholder="••••••••" class="styled-input">
+        <i class="far eye-icon" [class.fa-eye]="!passwordVisible" [class.fa-eye-slash]="passwordVisible" (click)="togglePasswordVisibility()"></i>
+      </div>
+    </div>
+
+    <div class="checkbox-group">
+      <input type="checkbox" id="keepSignedIn" [(ngModel)]="keepSignedIn" class="styled-checkbox">
+      <label for="keepSignedIn">Keep me signed in</label>
+    </div>
+
+    <button class="sign-in-btn" (click)="onSignIn()" [disabled]="loading">
+      <span *ngIf="!loading">Sign In <i class="fas fa-arrow-right ms-2"></i></span>
+      <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
+    </button>
+
+    <div class="divider">
+      <span class="divider-text">OR CONTINUE WITH</span>
+    </div>
+
+    <div class="social-buttons">
+      <button class="social-btn" (click)="continueWith('Google')">
+        <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="Google">
+        Google
+      </button>
+      <button class="social-btn" (click)="continueWith('Apple ID')">
+        <i class="fab fa-apple"></i>
+        Apple ID
+      </button>
+    </div>
+  </div>
+
+  <div class="footer-links text-center">
+    <p class="signup-text">Don't have an account? <a href="#" class="begin-link">Begin your application</a></p>
+    
+    <div class="bottom-legal">
+      <span>PRIVACY POLICY</span>
+      <span class="dot">•</span>
+      <span>TERMS OF SERVICE</span>
+      <span class="dot">•</span>
+      <span>SECURE CONNECTION</span>
+    </div>
+  </div>
+</div>

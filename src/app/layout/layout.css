@@ -1,0 +1,131 @@
+:host {
+  font-family: 'Inter', sans-serif;
+  display: block;
+  min-height: 100vh;
+}
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+/* Sidebar Styling: Stays consistent for all child components */
+.sidebar {
+  width: 260px;
+  background: white;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  position: fixed;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.logo-box {
+  background: #0066cc;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+
+.brand-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #94a3b8;
+  letter-spacing: 0.1em;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  color: #64748b;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background: #f8fafc;
+  color: #0066cc;
+}
+
+.nav-item.active {
+  background: #0066cc;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.apply-btn {
+  background: #0066cc;
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+  transition: all 0.2s;
+}
+
+.apply-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 102, 204, 0.3);
+}
+
+.bottom-links {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Page Content Area: The area to the right of the fixed sidebar */
+.main-content-area {
+  flex: 1;
+  margin-left: 260px;
+  background: #f8fafc;
+  min-height: 100vh;
+}

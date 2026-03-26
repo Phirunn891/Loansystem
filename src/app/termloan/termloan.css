@@ -1,0 +1,104 @@
+.back-btn{
+  padding: 2rem;
+  color: rgb(15, 144, 250);
+  font-size: 3rem;
+  transition: margin 0.2s ease;
+}
+.back-btn:hover{
+  margin: 0px 0 0 10px;
+}
+.bg{
+    background-color: rgb(101, 152, 196);
+}
+.item-card{
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    margin-left: 0.7rem;
+   margin-bottom: 0.5rem;
+}
+.card-color{
+    background: linear-gradient(to right,rgb(3, 116, 209),rgb(59, 162, 247));
+}
+.card-hover{
+  transition: all 0.2s ease;
+}
+.card-hover:hover{
+  transform: scale(1.1);
+}
+.bg-card{
+    background-color: rgb(15, 144, 250);
+}
+.color-header{
+    color: rgb(15, 144, 250);
+}
+.icon{
+   color: rgb(15, 144, 250);
+   font-size: 2rem;
+}
+.borders{
+  border: none !important;
+}
+.border{
+  border-color: white;
+  border-radius: 0.5rem;
+}
+.dangrek-regular {
+  font-family: "Dangrek", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.table{
+  background-color: transparent;
+}
+.table>:not(caption)>*>*{
+  background-color: transparent;
+}
+.color-table{
+  background:linear-gradient(to right,rgb(78, 5, 90),rgb(8, 8, 8))
+}
+.color-text{
+  color: rgb(109, 0, 114);
+}
+.color-border{
+  background-color: rgb(0, 198, 198);
+}
+.bg-table{
+  background-color: transparent;
+}
+.bg-color{
+  background:linear-gradient(to right,rgb(60, 12, 93),rgb(31, 3, 31))
+}
+.color-purple{
+  background: linear-gradient(to right,rgb(0, 187, 255),rgb(39, 158, 255));
+}
+.color-berry{
+  background: linear-gradient(to right,rgb(255, 0, 119),rgb(99, 1, 83));
+}
+.aling-center{
+  display: flex;
+  justify-content: center;
+}
+.footer{
+    margin: 5rem;
+    border-top: 1px solid rgb(65, 65, 65);
+    padding: 1rem;
+}
+.footer-text{
+  color: rgb(67, 69, 71);
+}
+.icon-container{
+  display: flex;
+  gap: 1rem;
+}
+.footer > .icon-container {
+    justify-content: flex-end;
+}
+.link-icon{
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: rgb(0, 153, 255);
+}
+.link-icon:hover{  
+    transform: scale(1.2);
+}

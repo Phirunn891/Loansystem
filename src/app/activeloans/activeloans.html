@@ -1,0 +1,69 @@
+<div class="main-page-wrapper">
+  <header class="top-bar">
+    <div class="welcome-section">
+      <h2 class="page-title">Active Loan Facilities</h2>
+      <span class="welcome-text">Overview of your current lending facilities</span>
+    </div>
+
+    <div class="header-actions">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Filter loans...">
+      </div>
+      <button class="icon-btn"><i class="far fa-bell"></i></button>
+      <div class="profile-thumb">
+        <img src="/image/profile.jpg" alt="Profile">
+      </div>
+    </div>
+  </header>
+
+  <div class="loans-grid">
+    <div *ngFor="let loan of loans" class="loan-item-card">
+      <div class="card-top-info">
+        <div class="type-badge">
+          <div class="icon-circle"><i [class]="loan.icon"></i></div>
+          <div class="type-names">
+            <span class="loan-type">{{loan.type}}</span>
+            <span class="loan-id">{{loan.id}}</span>
+          </div>
+        </div>
+        <div class="status-indicator">
+          <span class="dot" [class.healthy]="loan.status === 'Healthy'" 
+                [class.warning]="loan.status === 'Closing Soon'"
+                [class.progress]="loan.status === 'In Progress'"></span>
+          {{loan.status}}
+        </div>
+      </div>
+
+      <div class="card-values">
+        <div class="val-group">
+          <span class="label">ORIGINAL AMOUNT</span>
+          <span class="value">{{loan.amount}}</span>
+        </div>
+        <div class="val-group text-end">
+          <span class="label">REMAINING DEBT</span>
+          <span class="value highlight">{{loan.remaining}}</span>
+        </div>
+      </div>
+
+      <div class="card-progress">
+        <div class="progress-info">
+          <span class="perc">{{loan.progress}}% Paid</span>
+          <span class="detail">Interest: {{loan.interestRate}}</span>
+        </div>
+        <div class="progress-bar-outer">
+          <div class="progress-bar-inner" [style.width.%]="loan.progress"></div>
+        </div>
+      </div>
+
+      <div class="card-footer-info">
+        <div class="next-pay">
+          <i class="far fa-calendar-alt"></i> Next: {{loan.nextPayment}}
+        </div>
+        <button class="btn-manage" [routerLink]="loan.route">
+          Manage <i class="fas fa-chevron-right ms-2"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
