@@ -13,8 +13,8 @@ import { CommonModule } from '@angular/common';
 export class Loginbank {
   private router = inject(Router);
   
-  email: string = '';
-  password: string = '';
+  email: string = 'User';
+  password: string = '@admin';
   keepSignedIn: boolean = false;
   loading: boolean = false;
   passwordVisible: boolean = false;
